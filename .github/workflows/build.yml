@@ -25,22 +25,20 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pyinstaller
+          pip install --no-cache-dir -r requirements.txt
+          pip install --no-cache-dir pyinstaller
 
       - name: Build executable
+        shell: bash
         run: |
-          # Windows → .exe
           if [[ "$RUNNER_OS" == "Windows" ]]; then
             pyinstaller --noconfirm --onefile main.py
           fi
 
-          # macOS → .app
           if [[ "$RUNNER_OS" == "macOS" ]]; then
             pyinstaller --noconfirm --windowed --name "MyApp" main.py
           fi
 
-          # Linux → ELF binary
           if [[ "$RUNNER_OS" == "Linux" ]]; then
             pyinstaller --noconfirm --onefile main.py
           fi
