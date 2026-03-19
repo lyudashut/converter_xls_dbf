@@ -2,3 +2,5 @@ pandas
 dbfread
 pyinstaller
 chardet
+tkinterdnd2
+aenum
