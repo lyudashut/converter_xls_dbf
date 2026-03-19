@@ -2,4 +2,3 @@ pandas
 dbfread
 pyinstaller
 chardet
-dbf
