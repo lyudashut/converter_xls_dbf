@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           if [[ "$RUNNER_OS" == "Windows" ]]; then
-            pyinstaller --noconfirm --onefile converter_gui_pro.py
+            pyinstaller --noconfirm --windowed --onefile converter_gui_pro.py
           fi
 
           if [[ "$RUNNER_OS" == "macOS" ]]; then
