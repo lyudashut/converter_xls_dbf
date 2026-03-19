@@ -1,4 +1,4 @@
-name: Multi‑Platform Build
+name: Multi-Platform Build
 
 on:
   push:
@@ -34,15 +34,15 @@ jobs:
         shell: bash
         run: |
           if [[ "$RUNNER_OS" == "Windows" ]]; then
-            pyinstaller --noconfirm --windowed --onefile --paths libs converter_gui_pro.py
+            pyinstaller --noconfirm --windowed --onefile --paths libs --hidden-import aenum converter_gui_pro.py
           fi
 
           if [[ "$RUNNER_OS" == "macOS" ]]; then
-            pyinstaller --noconfirm --windowed --name "MyApp" --paths libs converter_gui_pro.py
+            pyinstaller --noconfirm --windowed --name "MyApp" --paths libs --hidden-import aenum converter_gui_pro.py
           fi
 
           if [[ "$RUNNER_OS" == "Linux" ]]; then
-            pyinstaller --noconfirm --onefile --paths libs converter_gui_pro.py
+            pyinstaller --noconfirm --onefile --paths libs --hidden-import aenum converter_gui_pro.py
           fi
 
       - name: Upload artifact
